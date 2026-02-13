@@ -3,6 +3,7 @@ const nextConfig = {
   basePath: "/aqib-portfolio",
   assetPrefix: "/aqib-portfolio/",
   distDir: "docs",
+  trailingSlash: true,
 };
 
-module.exports = nextConfig;
+export default nextConfig;
