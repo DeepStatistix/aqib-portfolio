@@ -4,13 +4,14 @@
   "private": true,
   "homepage": "https://DeepStatistix.github.io/aqib-portfolio",
   "scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "deploy": "next build && gh-pages -d out",
-  "start": "next start",
-  "lint": "next lint"
-},
+    "dev": "next dev",
+    "build": "next build",
+    "deploy": "next build && gh-pages -d out",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
+    "framer-motion": "^12.34.0",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"

@@ -1,113 +1,152 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+
 export default function Home() {
   return (
-    <main style={{
-      backgroundColor: "#0b1120",
-      color: "#e5e7eb",
-      minHeight: "100vh",
-      padding: "60px 20px",
-      fontFamily: "Inter, sans-serif"
-    }}>
-      <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+    <main className="bg-slate-950 text-slate-200 min-h-screen">
 
-        {/* HERO */}
-        <h1 style={{ fontSize: "52px", marginBottom: "10px" }}>
-          Aqib Gul
-        </h1>
+      {/* NAVBAR */}
+      <nav className="sticky top-0 bg-slate-950/80 backdrop-blur border-b border-slate-800 z-50">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+          <h1 className="text-xl font-semibold">Aqib Gul</h1>
+          <div className="space-x-6 text-sm">
+            <a href="#projects" className="hover:text-white">Projects</a>
+            <a href="#research" className="hover:text-white">Research</a>
+            <a href="#architecture" className="hover:text-white">Architecture</a>
+            <a href="/resume.pdf" download className="bg-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-500">
+              Download CV
+            </a>
+          </div>
+        </div>
+      </nav>
 
-        <h2 style={{ fontWeight: 400, color: "#9ca3af", marginBottom: "30px" }}>
-          Machine Learning Engineer (PhD) · Forecasting Systems · Deep Learning
+      {/* HERO */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <h2 className="text-5xl font-bold leading-tight mb-6">
+          Machine Learning Engineer (PhD)
         </h2>
-
-        <p style={{ fontSize: "18px", color: "#cbd5e1", marginBottom: "40px" }}>
-          I design and deploy production-grade machine learning systems for
-          non-stationary, high-variance data environments. My work spans
-          deep learning, ensemble intelligence, statistical validation, and
-          real-time decision support architectures.
+        <p className="text-slate-400 text-lg max-w-3xl">
+          I build production-grade ML systems for non-stationary environments,
+          combining deep learning, ensemble intelligence, and rigorous statistical validation.
         </p>
 
-        {/* FLAGSHIP SYSTEM */}
-        <h3 style={{ marginBottom: "20px" }}>Production ML Systems</h3>
+        <div className="mt-8 flex gap-4">
+          <a href="https://github.com/DeepStatistox"
+             className="border border-slate-700 px-6 py-3 rounded-xl hover:border-white">
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/aqibgul"
+             className="border border-slate-700 px-6 py-3 rounded-xl hover:border-white">
+            LinkedIn
+          </a>
+        </div>
+      </section>
 
-        <div style={{ marginBottom: "35px" }}>
-          <h4>AI Market Intelligence & Forecasting Platform</h4>
-          <p style={{ color: "#9ca3af" }}>
-            Architected and deployed an end-to-end forecasting system integrating:
+      {/* METRICS */}
+      <section className="border-t border-slate-800 py-16">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <h3 className="text-4xl font-bold text-indigo-500">30%+</h3>
+            <p className="text-slate-400">Forecast Error Reduction</p>
+          </div>
+          <div>
+            <h3 className="text-4xl font-bold text-indigo-500">Multi-Market</h3>
+            <p className="text-slate-400">Time Series Modeling</p>
+          </div>
+          <div>
+            <h3 className="text-4xl font-bold text-indigo-500">Production</h3>
+            <p className="text-slate-400">Deployed ML System</p>
+          </div>
+        </div>
+      </section>
+
+      {/* PROJECTS */}
+      <section id="projects" className="max-w-6xl mx-auto px-6 py-20">
+        <h3 className="text-3xl font-semibold mb-12">Selected Projects</h3>
+
+        <div className="grid md:grid-cols-2 gap-10">
+
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            className="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-lg"
+          >
+            <h4 className="text-xl font-semibold mb-4">
+              AI Market Intelligence Platform
+            </h4>
+            <p className="text-slate-400 mb-6">
+              End-to-end forecasting system with SQL ingestion,
+              LSTM models, ensemble stacking, FastAPI backend,
+              and web-based monitoring.
+            </p>
+            <Link href="/projects/market-intelligence"
+              className="text-indigo-500 hover:underline">
+              View Case Study →
+            </Link>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            className="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-lg"
+          >
+            <h4 className="text-xl font-semibold mb-4">
+              Hybrid Ensemble Architecture
+            </h4>
+            <p className="text-slate-400 mb-6">
+              Novel framework integrating bagging, boosting,
+              dagging, stacking. Validated with DM Test and
+              Model Confidence Set.
+            </p>
+            <Link href="/projects/ensemble-framework"
+              className="text-indigo-500 hover:underline">
+              View Case Study →
+            </Link>
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* ARCHITECTURE */}
+      <section id="architecture" className="border-t border-slate-800 py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <h3 className="text-3xl font-semibold mb-10">
+            System Architecture
+          </h3>
+
+          <img
+            src="/architecture.png"
+            alt="ML System Architecture"
+            className="rounded-2xl border border-slate-800 shadow-xl"
+          />
+
+          <p className="text-slate-400 mt-6 max-w-3xl">
+            SQL ingestion → preprocessing → model training pipeline →
+            ensemble aggregation → statistical validation →
+            REST API deployment → web monitoring dashboard.
           </p>
-          <ul style={{ color: "#9ca3af" }}>
-            <li>Real-time SQL data ingestion pipelines</li>
-            <li>LSTM & ensemble forecasting models</li>
-            <li>Statistical validation (DM test, Model Confidence Set)</li>
-            <li>REST APIs (FastAPI/Flask)</li>
-            <li>Web-based monitoring interface for decision support</li>
+        </div>
+      </section>
+
+      {/* RESEARCH */}
+      <section id="research" className="border-t border-slate-800 py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <h3 className="text-3xl font-semibold mb-8">
+            Research & Innovation
+          </h3>
+          <ul className="text-slate-400 space-y-4">
+            <li>Scientific Reports (Nature Portfolio) – Deep learning multi-market forecasting</li>
+            <li>Computational Economics – Hybrid ensemble architecture</li>
+            <li>Design Patents – AI-enabled crop assessment systems</li>
           </ul>
-          <p style={{ color: "#9ca3af" }}>
-            Built for large-scale agricultural market intelligence under
-            state-level development programs.
-          </p>
         </div>
+      </section>
 
-        {/* RESEARCH-DRIVEN ENGINEERING */}
-        <h3 style={{ marginBottom: "20px" }}>Research-Driven ML Engineering</h3>
+      {/* FOOTER */}
+      <footer className="border-t border-slate-800 py-10 text-center text-slate-500 text-sm">
+        © {new Date().getFullYear()} Aqib Gul — Machine Learning Engineer
+      </footer>
 
-        <div style={{ marginBottom: "30px" }}>
-          <h4>Hybrid Ensemble Architecture</h4>
-          <p style={{ color: "#9ca3af" }}>
-            Designed a novel ensemble framework combining bagging, boosting,
-            dagging, and stacking strategies for robust time-series forecasting.
-            Validated using rigorous statistical comparison methods.
-          </p>
-        </div>
-
-        <div style={{ marginBottom: "30px" }}>
-          <h4>Deep Learning for Non-Stationary Time Series</h4>
-          <p style={{ color: "#9ca3af" }}>
-            Implemented LSTM-based architectures for multi-market forecasting,
-            optimizing for generalization under regime shifts and seasonal drift.
-          </p>
-        </div>
-
-        {/* PUBLICATIONS */}
-        <h3 style={{ marginTop: "50px", marginBottom: "20px" }}>
-          Selected Publications
-        </h3>
-
-        <ul style={{ color: "#9ca3af" }}>
-          <li>Scientific Reports (Nature Portfolio) – Deep learning-enabled multi-market forecasting</li>
-          <li>Computational Economics – Novel hybrid ensemble framework</li>
-        </ul>
-
-        {/* INNOVATION */}
-        <h3 style={{ marginTop: "50px", marginBottom: "20px" }}>
-          Innovation
-        </h3>
-
-        <ul style={{ color: "#9ca3af" }}>
-          <li>Design Patent – AI-enabled crop quality assessment device</li>
-          <li>Design Patent – Intelligent crop statistics computing system</li>
-        </ul>
-
-        {/* TECH STACK */}
-        <h3 style={{ marginTop: "50px", marginBottom: "20px" }}>
-          Technical Stack
-        </h3>
-
-        <p style={{ color: "#9ca3af" }}>
-          Python · PyTorch · TensorFlow · scikit-learn · SQL · FastAPI ·
-          ARIMA · LSTM · Ensemble Learning · Hadoop · Spark · Git · REST APIs
-        </p>
-
-        {/* LINKS */}
-        <h3 style={{ marginTop: "50px", marginBottom: "20px" }}>
-          Links
-        </h3>
-
-        <p style={{ color: "#9ca3af" }}>
-          GitHub: https://github.com/DeepStatistox <br />
-          LinkedIn: https://linkedin.com/in/aqibgul <br />
-          ORCID: https://orcid.org/0009-0009-8770-6156
-        </p>
-
-      </div>
     </main>
   );
 }
