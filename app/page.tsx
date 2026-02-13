@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
             <a href="#skills" className="hover:text-white">Skills</a>
             <a href="#experience" className="hover:text-white">Experience</a>
             <a href="#projects" className="hover:text-white">Projects</a>
-            <a href="/resume.pdf" download className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-neutral-200">Resume</a>
+            <a href={`${basePath}/resume.pdf`} download className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-neutral-200">Resume</a>
           </nav>
         </div>
       </header>
@@ -95,7 +96,7 @@ export default function Home() {
           </div>
 
           <div className="rounded-2xl border border-neutral-800 overflow-hidden shadow-2xl mt-16">
-            <img src="/architecture.png" alt="architecture" className="w-full" />
+            <img src={`${basePath}/architecture.png`} alt="architecture" className="w-full" />
           </div>
         </div>
       </section>
